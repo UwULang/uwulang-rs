@@ -1,4 +1,3 @@
-use std::env;
 use std::fs::File;
 use std::io::Read;
 use clap::Parser;
@@ -15,13 +14,13 @@ fn main() -> std::io::Result<()> {
     let code: Vec<char> =
     if args.filename.is_some() {
         let filename = args.filename.unwrap();
-        println!("Reading from file: {}", &filename);
+        dbg!("Reading from file: {}", &filename);
         let mut file = File::open(&filename)?;
         let mut contents = String::new();
         file.read_to_string(&mut contents)?;
         contents.chars().collect()
     } else {
-        println!("Reading from stdin");
+        dbg!("Reading from stdin");
         Vec::new()
     };
 
