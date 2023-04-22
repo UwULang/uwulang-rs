@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{self, Read};
 use clap::Parser;
 
-const AUTHOR: &str = "This manual page was written by the UwULang team: Bhttps://github.com/UwULang";
+const AUTHOR: &str = "This manual page was written by the UwULang team: https://github.com/UwULang";
 const VERSION: &str = "0.1.1";
 const ABOUT: &str = "uwulang is the best programming language to take over the world!";
 const LONG_ABOUT: &str = "uwulang is the best programming language to take over the world! It is a turing-complete language modelled after the measured UwUness of a programming language called BrainFuck";
@@ -11,7 +11,7 @@ const LONG_ABOUT: &str = "uwulang is the best programming language to take over 
 #[derive(Parser, Debug)]
 #[command(author=AUTHOR, version=VERSION, about=ABOUT, long_about=LONG_ABOUT)]
 struct Args {
-    #[arg(short = 'f', long)]
+    #[arg(short = 'f', long, help="Provide the .uwu file to be run on")]
     filename: Option<String>,
     #[arg(long)]
     file: Option<String>,
