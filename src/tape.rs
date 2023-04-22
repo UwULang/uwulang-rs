@@ -19,6 +19,23 @@ impl Tape {
         }
     }
 
+    pub fn new_with_init(cells: &Vec<u8>) -> Self {
+        let mut mapping: HashMap<usize, u8> = HashMap::new();
+        let mut pointer = 0;
+
+        // for cell in cells initialize the tape with the values (convert to u8)
+        for cell in cells {
+            mapping.insert(pointer, *cell);
+            pointer += 1;
+        }
+
+
+        Self {
+            cells: mapping,
+            pointer: 0,
+        }
+    }
+
     pub fn get(&self) -> u8 {
         *self.cells.get(&self.pointer).unwrap_or(&0)
     }
